@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const ExpenseDashboardPage = () => (
   <div>This is from expense dashboard component</div>
@@ -13,15 +13,18 @@ const EditExpensePage = () => (
 
 const HelpPage = () => <div>This is from help page component</div>;
 
+const NotFoundPage = () => <div>404!</div>;
+
 const App = () => {
   return (
     <Router>
-      <div>
+      <Switch>
         <Route path="/" component={ExpenseDashboardPage} exact />
         <Route path="/create" component={AddExpensePage} />
         <Route path="/edit" component={EditExpensePage} />
         <Route path="/help" component={HelpPage} />
-      </div>
+        <Route component={NotFoundPage} />
+      </Switch>
     </Router>
   );
 };
