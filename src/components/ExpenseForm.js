@@ -54,7 +54,7 @@ class ExpenseForm extends Component {
         id: uuid(),
         description: this.state.description,
         note: this.state.note,
-        amount: this.state.amount,
+        amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf()
       });
     }
